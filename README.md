@@ -1,2 +1,2 @@
 # FlaskSamples
-Demonstrating Flask and how it works by samples.
+Templates and Examples for getting started and advancing on Flask.
