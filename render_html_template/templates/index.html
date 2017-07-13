@@ -1,0 +1,77 @@
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title> INDEX.HTML </title>
+
+    <script type="text/javascript">
+    
+      function createContent() {
+        
+        var paraLen = document.getElementById("text").innerHTML.length;
+      
+        if (paraLen == 0) {
+          alert(paraLen);
+          var para = document.getElementById("text").innerHTML="Welcome to Flask :)";
+        } 
+        
+      }
+    
+    </script>
+    
+    <style type="text/css">
+
+      body {
+        margin: 0;
+        height: 100%;
+        background-color: #cccccc;
+      }
+      
+      div {
+        top: 250px;
+        width: 300px;
+        height: 150px; 
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #e6e6e6;
+        position: relative;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      
+      input {
+        top: 25px;
+        width: 90px;
+        height: 35px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+      }
+      
+      p {
+        top: 30px;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: "Arial";
+        text-align: center;
+        position: relative;
+      }
+        
+    </style>
+
+  </head>
+
+  <body>
+    
+    <div>
+      <input type="button" value="Press Here" onclick="createContent()"/>
+      <p id="text"></p>
+    </div>
+    
+  </body>
+
+
+</html>
