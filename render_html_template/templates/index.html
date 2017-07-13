@@ -13,8 +13,7 @@
         var paraLen = document.getElementById("text").innerHTML.length;
       
         if (paraLen == 0) {
-          alert(paraLen);
-          var para = document.getElementById("text").innerHTML="Welcome to Flask :)";
+          var para = document.getElementById("text").innerHTML="...Flask :)!";
         } 
         
       }
@@ -26,19 +25,26 @@
       body {
         margin: 0;
         height: 100%;
-        background-color: #cccccc;
+        background-color: #e6e6e6;
       }
       
       div {
-        top: 250px;
+        top: 200px;
         width: 300px;
         height: 150px; 
         margin-left: auto;
         margin-right: auto;
-        background-color: #e6e6e6;
+        background-color: #ccccc0;
         position: relative;
         border: 1px solid black;
         border-radius: 10px;
+      }
+      
+      h3 {
+        top: 100px;
+        font-family: "Arial";
+        text-align: center;
+        position: relative;
       }
       
       input {
@@ -53,7 +59,7 @@
       
       p {
         top: 30px;
-        font-size: 25px;
+        font-size: 18px;
         font-weight: bold;
         font-family: "Arial";
         text-align: center;
@@ -66,6 +72,7 @@
 
   <body>
     
+    <h3> {{ title }} </h3>
     <div>
       <input type="button" value="Press Here" onclick="createContent()"/>
       <p id="text"></p>
