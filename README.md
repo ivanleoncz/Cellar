@@ -1,2 +1,2 @@
-# FlaskSamples
-Templates and Examples for getting started and advancing on Flask.
+# FlaskTemplates
+Templates/Examples: getting started (advancing) with Flask.
