@@ -11,24 +11,31 @@ class Lite:
         self.db = db
 
     def data_builder(self):
-        print("Building data...")
         conn = lite.connect(self.db, isolation_level=None)
         cur = conn.cursor()
         cur.execute("DROP TABLE IF EXISTS program_languages_ranking_ieee_2017")
         cur.execute("CREATE TABLE program_languages_ranking_ieee_2017 \
-                    (Pos INT, Name TEXT, Web BOOLEAN, Mobile BOOLEAN, Desktop BOOLEAN, MicroCircuits BOOLEAN)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(1,'Python',1,0,1,0)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(2,'C',0,1,1,1)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(3,'Java',1,1,1,0)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(4,'C++',0,1,1,1)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(5,'C sharp',1,1,1,0)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(6,'R lang',0,0,1,0)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(7,'JavaScript',1,1,0,0)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(8,'PHP',1,0,0,0)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(9,'Go',1,0,1,0)")
-        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(10,'Swift',0,1,1,0)")
+                    (Pos INT, Name TEXT, Web CHARACTER(3), Mobile CHARACTER(3), Desktop CHARACTER(3), MicroCircuits CHARACTER(3))")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(1,'Python','Yes','No','Yes','No')")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(2,'C','No','Yes','Yes','Yes')")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(3,'Java','Yes','Yes','Yes','No')")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(4,'C++','No','Yes','Yes','Yes')")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(5,'C sharp','Yes','Yes','Yes','NO')")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(6,'R lang','No','No','Yes','No')")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(7,'JavaScript','Yes','Yes','No','No')")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(8,'PHP','Yes','No','No','No')")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(9,'Go','Yes','No','Yes','No')")
+        cur.execute("INSERT INTO program_languages_ranking_ieee_2017 VALUES(10,'Swift','No','Yes','Yes','No')")
         conn.close()
-        return "Done."
+        return None
+
+    def data_querier(self):
+        conn = lite.connect(self.db, isolation_level=None)
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM program_languages_ranking_ieee_2017")
+        results = cur.fetchall()
+        conn.close()
+        return results
 
     def get_version():
         try:
