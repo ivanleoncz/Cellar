@@ -1,0 +1,179 @@
+<html>
+
+
+  <head>
+
+    <title> The 2017 Top Programming Languages </title>
+
+    <style type="text/css">
+
+      * {
+          font-family: Arial;
+      }
+      
+      body {
+        background-color: #e6e6e6;
+      }
+      
+      h1 {
+        top: 30px;
+        left: 150px;
+        position: absolute;
+        
+      }
+
+      #table_central {
+          top: 120px;
+          left: 120px;
+          width: 60%;
+          height: 50%;
+          position: absolute;
+      }
+      
+      #table_central table {
+          width: 100%;
+          height: 100%;
+      }
+
+      #table_central table, 
+      #table_central th, 
+      #table_central td {
+          border: 1px solid #000000;
+          border-collapse: collapse;
+      }
+
+      #table_central th {
+          color: #737373;
+          font-size: 16px;
+          font-weight: bold;
+      }
+
+      #table_central td {
+          color: #a6a6a6;
+          font-size: 16px;  
+          font-weight: bold;
+      }
+
+      .cell_center {
+          width: 18%;
+          text-align: center;
+      }
+
+      .cell_pad {
+          padding-left: 32px;
+      }
+
+
+      
+      #footer_left {
+          left: 10px;
+          bottom: 20px;
+          width: 20%;
+          height: 20%;
+          float: left;
+          position: absolute;
+      }
+      
+      #footer_left table {
+          width: 100%;
+          height: 100%;
+      }
+      
+      #footer_left table, 
+      #footer_left td {
+          border: 0px solid #000000;
+          border-collapse: collapse;
+      }
+      
+      #footer_left img {
+          width: 100%;
+      }
+      
+      
+      
+      #footer_right {
+          right:  10px;
+          bottom: 10px;
+          width: 220px;
+          height: 50px;
+          position: absolute;
+      }
+      
+      #footer_right a {
+          text-decoration: none;
+          font-weight: bold;
+      }
+
+      #footer_right a:hover {
+          color: #ff6600;
+      }
+
+      
+    </style>
+
+  </head>
+
+
+  <body>
+
+    <h1> The 2017 Top Programming Languages by IEEE </h1>
+
+    
+    <div id="table_central">
+      <table> 
+        <tr>
+          <th> Position </th>  
+          <th> Language </th>  
+          <th> Web </th>  
+          <th> Mobile </th>  
+          <th> Desktop </th> 
+          <th> Microcontrolers </th>
+        </tr>
+        {% for lang in ranking %}
+        <tr>
+          <td class="cell_pad"> {{ lang[0] }} </td> 
+          <td class="cell_pad"> {{ lang[1] }} </td> 
+          <td class="cell_center"> {{ lang[2] }} </td> 
+          <td class="cell_center"> {{ lang[3] }} </td> 
+          <td class="cell_center"> {{ lang[4] }} </td> 
+          <td class="cell_center"> {{ lang[5] }} </td>
+        </tr>
+        {% endfor %}      
+      </table>
+    </div> 
+    
+    <div id="footer_left">
+      <table>
+        <tr>
+            <td colspan=3> <b> Powered By: </b> </td>
+        </tr>
+        <tr>
+          <td> 
+            <a href="https://www.sqlite.org/index.html"> 
+              <img src="{{ url_for('static', filename='python.jpg') }}"/>
+            </a> 
+          </td>
+          <td> 
+            <a href="http://flask.pocoo.org/docs/0.12/"> 
+              <img src="{{ url_for('static', filename='flask.png') }}"/>
+            </a>
+          </td>
+          <td> 
+            <a href="https://www.python.org/download/releases/3.4.0/">
+              <img src="{{ url_for('static', filename='sqlite.jpg') }}"/>
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="footer_right">
+        <p> 
+          <a href="http://spectrum.ieee.org/computing/software/the-2017-top-programming-languages" target="_blank"> Check the full article here! </a>
+        </p>
+    </div>
+    
+    
+  </body>
+
+</html>
