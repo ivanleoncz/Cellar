@@ -37,13 +37,13 @@ class Lite:
         conn.close()
         return results
 
-    def get_version():
+    def get_version(self):
         try:
-            conn = lite.connect('test.db')
+            conn = lite.connect(self.db, isolation_level=None)
             cur = conn.cursor()
             cur.execute('SELECT SQLITE_VERSION()')
             data = cur.fetchone()
-            return "SQLite version: %s " % data
+            return data
         except Exception as e:
             return "Error: %s " % e
         finally:
