@@ -1,5 +1,11 @@
 #/usr/bin/env python3
 
+"""
+This example/template, logs every request (successful or not, 
+including Tracebacks) to a file and writes Werkzeug loggers to
+stdout, maintaining messages present on stdout and in a log file.
+"""
+
 import logging
 from logging.handlers import RotatingFileHandler
 from flask import Flask, request, jsonify
