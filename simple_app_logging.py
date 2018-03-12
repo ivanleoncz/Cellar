@@ -1,4 +1,4 @@
-#/usr/bin/env python3
+#/usr/bin/python3
 """ Demonstration of logging feature for a Flask App. """
 
 from logging.handlers import RotatingFileHandler
