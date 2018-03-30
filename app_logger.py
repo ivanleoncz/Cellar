@@ -71,12 +71,12 @@ def exceptions(e):
 if __name__ == '__main__':
     # maxBytes with small number, in order to demonstrate 
     # the generation of multiple log files (backupCount).
-    handler = RotatingFileHandler('logging.log', maxBytes=10000, backupCount=3)
+    hand = RotatingFileHandler('app_logger.log', maxBytes=10000, backupCount=3)
     # getLogger(__name__): decorators to file) + werkzeug to stdout
     # getLogger('werkzeug'): werkzeug to file + nothing to stdout
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.ERROR)
-    logger.addHandler(handler)
+    logger.addHandler(hand)
     app.run(host="127.0.0.1",port=8000)
 
 
