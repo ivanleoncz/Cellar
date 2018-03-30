@@ -34,7 +34,7 @@ def get_data():
 @app.route("/error")
 def get_nothing():
     """ Route for intentional error. """
-    return non_real_variable # intentional non existent variable
+    return non_existent_variable # intentional non existent variable
 
 
 @app.after_request
@@ -99,4 +99,3 @@ if __name__ == '__main__':
 #
 ###########
 
-# Here: https://stackoverflow.com/questions/14037975/how-do-i-write-flasks-excellent-debug-log-message-to-a-file-in-production/39284642#39284642
