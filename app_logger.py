@@ -72,7 +72,7 @@ if __name__ == '__main__':
     # maxBytes with small number, in order to demonstrate 
     # the generation of multiple log files (backupCount).
     hand = RotatingFileHandler('app_logger.log', maxBytes=10000, backupCount=3)
-    # getLogger(__name__): decorators to file) + werkzeug to stdout
+    # getLogger(__name__): decorators to file + werkzeug to stdout
     # getLogger('werkzeug'): werkzeug to file + nothing to stdout
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.ERROR)
