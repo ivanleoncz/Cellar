@@ -69,10 +69,11 @@ def exceptions(e):
     return "Internal Server Error", 500
 
 if __name__ == '__main__':
-    # maxBytes to small number, in order to demonstrate the generation of multiple log files (backupCount).
-    handler = RotatingFileHandler('app.log', maxBytes=10000, backupCount=3)
-    # getLogger(__name__): decorators loggers to file + werkzeug loggers to stdout
-    # getLogger('werkzeug'): werkzeug loggers to file + nothing to stdout
+    # maxBytes with small number, in order to demonstrate 
+    # the generation of multiple log files (backupCount).
+    handler = RotatingFileHandler('logging.log', maxBytes=10000, backupCount=3)
+    # getLogger(__name__): decorators to file) + werkzeug to stdout
+    # getLogger('werkzeug'): werkzeug to file + nothing to stdout
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.ERROR)
     logger.addHandler(handler)
