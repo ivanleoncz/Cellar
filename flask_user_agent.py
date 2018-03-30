@@ -8,21 +8,23 @@ app = Flask(__name__)
 def f_index():
     ua = request.headers.get('User-Agent')
     if "Windows Phone" in ua:
-        return "Hello, Windows Phone!"
+        return "Hello, Windows Phone!\n"
     elif "Android" in ua:
-        return "Hello, Android!"
+        return "Hello, Android!\n"
     elif "iPad" in ua:
-        return "Hello, iPad!"
+        return "Hello, iPad!\n"
     elif "iPhone" in ua:
-        return "Hello, iPhone!"
+        return "Hello, iPhone!\n"
     elif "Windows NT" in ua:
-        return "Hello, Windows!"
+        return "Hello, Windows!\n"
     elif "X11" in ua:
-        return "Hello, GNU/Linux!"
-    elif "Mac OS X":
-        return "Hello, Macintosh!"
+        return "Hello, GNU/Linux!\n"
+    elif "Mac OS X" in ua:
+        return "Hello, Macintosh!\n"
+    elif "curl" in ua:
+        return "Hello, CURl!\n"
     else:
-        return "I don't know you..."
+        return "Who are you?\n"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
