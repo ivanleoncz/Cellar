@@ -1,34 +1,53 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+""" Demonstration of GET/POST requests, including Query Strings. 
 
-""" Demonstrating GET and POST methods on Flask. """
+For performing tests, some CURl examples:
+
+$ curl http://127.0.0.1:8000/index
+$ curl "http://127.0.0.1:8000/qs?name=Nemo&country=Norway"
+$ curl http://127.0.0.1:8000/post -d "name=Nemo&country=Norway"
+"""
 
 from flask import abort, Flask, jsonify, request
 
+__author__ = "@ivanleoncz"
+
+
 app = Flask(__name__)
 
-report = { "Date":"Aug,22 2017", "Service":"Web Server", "IPs":['201.39.23.231','133.42.59.3','23.3.48.234'] }
-
-@app.route('/')
+@app.route('/index', methods=['GET'])
 def f_index():
-    return "Welcome to Flask!"
+    if request.method == 'GET':
+        return "Welcome to Flask!"
+    else:
+        abort(405) # aborting: Method Not Allowed
 
-@app.route('/data', methods=['POST'])
+
+@app.route('/qs', methods=['GET'])
 def f_data():
     if request.method == 'GET':
-        # 405: Method Not Allowed
-        abort(405)
+        if len(request.args) == 0:
+            return "Query string Not Found! "
+        else:
+            name    = request.args.get('name')
+            country = request.args.get('country')
+            ipaddress = request.remote_addr 
+            data = ["Query String", name, country, ipaddress]
+            return jsonify(data)
     else:
-        name = request.form['username']
-        return "Hello, %s " % name
+        abort(405) # aborting: Method Not Allowed
 
-@app.route('/report', methods=['GET'])
+
+@app.route('/post', methods=['POST'])
 def f_report():
     if request.method == 'POST':
-        # 405: Method Not Allowed
-        abort(405)
+        name      = request.form["name"]
+        country   = request.form["country"]
+        ipaddress = request.remote_addr
+        data = ["POST", name, country, ipaddress]
+        return jsonify(data)
     else:
-        return jsonify(report)
-
+        abort(405) # aborting: Method Not Allowed
 
 
 if __name__ == "__main__":
