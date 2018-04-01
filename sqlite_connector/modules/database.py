@@ -12,7 +12,7 @@ class Lite:
     dbfile = None
     db     = sqlite3.connect(dbfile, isolation_level=None)
     cur    = db.cursor()
-    table  = "programming_languages_2017"
+    table  = "programming_languages_ranking_2017"
 
 
     def __init__(self,dbfile):
@@ -32,7 +32,7 @@ class Lite:
     def builder(self):
         """ Builds database table. """
 
-        pos = "Pos"
+        pos  = "Pos"
         name = "Name"
         col1 = "Web"
         col2 = "Mobile"
