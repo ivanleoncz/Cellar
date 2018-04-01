@@ -1,31 +1,28 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
+""" Main application module, providing access to views/routes. """
 
-import json
-from app_modules import sqlite3mod
-from flask import Flask, redirect, render_template
+from flask import Flask, render_template
+from modules import database
+
+__author__ = "@ivanleoncz"
 
 app = Flask(__name__)
-lite_obj = None
+
 
 @app.route("/")
 @app.route("/index")
 def f_index():
-    return redirect('/version')
+    return "Welcome to Flask!"
 
 
 @app.route("/ranking")
 def f_ranking():
-    db_querier = lite_obj.data_querier()
-    return render_template('ranking.html',ranking=db_querier)
-
-@app.route("/version")
-def f_sqlite_version():
-    db_version = lite_obj.get_version()
-    return "<h2 style='position: absolute; top: 30px; left: 50px; text-align: center'> SQLite Version: %s </h2>" % db_version
+    data = db_lite.reader()
+    return render_template('ranking.html',ranking=data)
 
 
 if __name__ == "__main__":
-    lite_obj = sqlite3mod.Lite("test.sqlite3")
-    db_builder = lite_obj.data_builder()
-    app.run(host="127.0.0.1",port=8000,debug=True)
+    db_lite = database.Lite("ieee.sqlite3")
+    db_lite.builder()
+    app.run(host="127.0.0.1",port=8000)
 
