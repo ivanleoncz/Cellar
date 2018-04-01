@@ -8,23 +8,22 @@ import sys
 
 class Lite:
     """ Protype for building SQLite3 database and reading its data. """
-
-    dbfile = None
-    db     = sqlite3.connect(dbfile, isolation_level=None)
-    cur    = db.cursor()
+    db     = None
+    cur    = None
     table  = "programming_languages_ranking_2017"
 
 
     def __init__(self,dbfile):
         """ Initializes class variable with database filename. """
-        self.dbfile = dbfile
+        self.db  = sqlite3.connect(dbfile, isolation_level=None)
+        self.cur = self.db.cursor()
 
 
     def reader(self):
         """ Reads database table. """
         query = """ SELECT * FROM {0} """.format(self.table)
         self.cur.execute(query)
-        data = cur.fetchall()
+        data = self.cur.fetchall()
         self.db.commit()
         return data
 
