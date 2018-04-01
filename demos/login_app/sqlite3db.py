@@ -36,7 +36,7 @@ class Database:
         self.cursor.execute(create)
         insert = """ INSERT INTO '{0}' (id,name,country,username,password) 
                      VALUES (1,'{1}','{2}','{3}','{4}');
-                 """.format(self.table,name,country,username,passhash)
+                 """.format(self.table, name, country, username, passhash)
         self.cursor.execute(insert)
         self.db.commit()
         return None
@@ -53,11 +53,11 @@ class Database:
         return data
 
 
-    def validate_user_pass(self,username,password):
+    def validate_user_pass(self, username, password):
         """ Password validation. """
         select = """ SELECT password FROM '{0}' 
                      WHERE username = '{1}';
-                 """.format(self.table,username)
+                 """.format(self.table, username)
         self.cursor.execute(select)
         self.db.commit()
         salt = self.cursor.fetchone()
@@ -81,7 +81,7 @@ if __name__ == "__main__":
         print("\n  * Notice: Table + First User successfully created.\n")
     username = input("Username: ") # following normal execution
     password = getpass(prompt="Password: ").encode("utf-8")
-    validation = database.validate_user_pass(username,password)
+    validation = database.validate_user_pass(username, password)
     if validation == 0:
         print("\n  * Username: OK / Password: OK\n")
     elif validation == 1:
