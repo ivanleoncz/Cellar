@@ -1,9 +1,10 @@
-# FlaskTemplates
+## FlaskTemplates
 
 A collection of templates (examples and demos) for Flask.
 
 
-# Content
+## Content
+
 
 **Examples (apps composed of a single module)**
 - Simple Flask App
@@ -19,6 +20,7 @@ A collection of templates (examples and demos) for Flask.
 **Demos (apps composed of modules, templates and other files)**
 - Login App
 - Ranking of Programming Languages (2017)
+
 
 
 This project can be better. Fork it, please :).
