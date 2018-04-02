@@ -2,9 +2,8 @@
 
 A collection of templates (examples and demos) for Flask.
 
-
+<br />
 ## Content
-
 
 **Examples (apps composed of a single module)**
 - Simple Flask App
@@ -22,7 +21,7 @@ A collection of templates (examples and demos) for Flask.
 - Ranking of Programming Languages (2017)
 
 
-
+<br />
 This project can be better. Fork it, please :).
 
 Thank You.
