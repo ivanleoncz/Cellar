@@ -2,7 +2,7 @@
 
 A collection of templates (examples and demos) for Flask.
 
-<br />
+<br>
 
 ## Content
 
@@ -21,15 +21,10 @@ A collection of templates (examples and demos) for Flask.
 - Login App
 - Ranking of Programming Languages (2017)
 
+<br>
 
-<br />
-
-This project can be better. Fork it, please :).
-
-<br />
-
-Thank You.
-@ivanleoncz
+This project can be better. Fork it, please :).<br><br>
+Thank You.<br>@ivanleoncz
 
 
 
