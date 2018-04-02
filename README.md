@@ -3,6 +3,7 @@
 A collection of templates (examples and demos) for Flask.
 
 <br />
+
 ## Content
 
 **Examples (apps composed of a single module)**
@@ -22,10 +23,12 @@ A collection of templates (examples and demos) for Flask.
 
 
 <br />
+
 This project can be better. Fork it, please :).
 
-Thank You.
+<br />
 
+Thank You.
 @ivanleoncz
 
 
