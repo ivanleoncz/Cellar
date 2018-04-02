@@ -34,7 +34,7 @@ def get_data():
 @app.route("/error")
 def get_nothing():
     """ Route for intentional error. """
-    return non_existent_variable # intentional non existent variable
+    return non_existing_variable # intentional non existent variable
 
 
 @app.after_request
@@ -68,6 +68,7 @@ def exceptions(e):
                   tb)
     return "Internal Server Error", 500
 
+
 if __name__ == '__main__':
     # maxBytes with small number, in order to demonstrate 
     # the generation of multiple log files (backupCount).
@@ -78,24 +79,3 @@ if __name__ == '__main__':
     logger.setLevel(logging.ERROR)
     logger.addHandler(hand)
     app.run(host="127.0.0.1",port=8000)
-
-
-
-### log ###
-#
-#    [2017-Aug-09 01:51] 127.0.0.1 GET http /? 200 OK
-#    [2017-Aug-09 01:51] 127.0.0.1 GET http /data? 200 OK
-#    [2017-Aug-09 01:51] 127.0.0.1 GET http /error? 5xx INTERNAL SERVER ERROR
-#    Traceback (most recent call last):
-#    File "/home/ivanlmj/git/env_flask_templates/lib/python3.4/site-packages/flask/app.py", 
-#        line 1612, in full_dispatch_request
-#    rv = self.dispatch_request()
-#    File "/home/ivanlmj/git/env_flask_templates/lib/python3.4/site-packages/flask/app.py", 
-#        line 1598, in dispatch_request
-#    return self.view_functions[rule.endpoint](**req.view_args)
-#    File "test.py", line 26, in get_json
-#    return non_real_variable # <--------------------------------------------- intentional
-#    NameError: name 'non_existent_variable' is not defined
-#
-###########
-
