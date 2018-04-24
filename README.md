@@ -1,12 +1,12 @@
-## FlaskTemplates
+## Cellar
 
-A collection of templates (examples and demos) for Flask.
+A collection of examples and demos of Flask.
 
 <br>
 
 ## Content
 
-**Examples (apps composed of a single module)**
+**Examples**
 - Simple Flask App
 - App Scheduler
 - Request Headers
@@ -17,14 +17,7 @@ A collection of templates (examples and demos) for Flask.
 - Query Strings
 - User Agent Detection
 
-**Demos (apps composed of modules, templates and other files)**
+**Demos**
 - Login App
+- Pagination
 - Ranking of Programming Languages (2017)
-
-<br>
-
-This project can be better. Fork it, please :).<br><br>
-Thank You.<br>@ivanleoncz
-
-
-
