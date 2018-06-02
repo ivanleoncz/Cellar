@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from flask import Flask, abort, jsonify, make_response
+from flask import Flask, abort, jsonify, make_response, request
 
 app = Flask(__name__)
 
@@ -31,6 +31,19 @@ def get_task(task_id):
         abort(404)                                                              
     return jsonify({'task': task[0]})
 
+
+@app.route('/todo/api/v1.0/tasks', methods=['POST'])
+def insert_task():
+    if not request.json or not 'title' in request.json:
+        abort(400)
+    task = {
+        'id': tasks[-1]['id'] + 1,
+        'title': request.json['title'],
+        'description': request.json.get('description', ""),
+        'done': False
+    }
+    tasks.append(task)
+    return jsonify({'task': task}), 201
 
 
 @app.errorhandler(404)
