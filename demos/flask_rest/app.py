@@ -20,16 +20,17 @@ tasks = [
 ]
 
 @app.route('/todo/api/v1.0/tasks', methods=['GET'])
-def get_tasks_v1():
+def get_tasks():
     return jsonify({'tasks': tasks})
 
 
-@app.route('/todo/api/v2.0/tasks/<int:task_id>', methods=['GET'])               
-def get_tasks_v2(task_id):                                                      
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
+def get_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]                    
     if len(task) == 0:                                                          
         abort(404)                                                              
     return jsonify({'task': task[0]})
+
 
 
 @app.errorhandler(404)
